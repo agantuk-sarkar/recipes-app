@@ -21,13 +21,26 @@
       </div>
       <div class="theme-container">
         <div class="theme-icon">
-            <i class="lni lni-moon-half-right-5"></i>
+          <i class="lni lni-moon-half-right-5"></i>
         </div>
         <h3>Dark Mode</h3>
       </div>
     </nav>
     <!-- main body -->
-    <main class="recipes-container"></main>
+    <main class="recipes-container">
+      <!-- search container and sort by container -->
+      <div class="search-and-sort-by-container">
+        <input type="text" id="search-input" placeholder="Enter the Recipe" />
+        <!-- sort by recipe -->
+        <div class="sort-by-container">
+          <select id="sort-by-recipe">
+            <option hidden>Sort By Recipe</option>
+            <option value=""></option>
+            <option value=""></option>
+          </select>
+        </div>
+      </div>
+    </main>
     <!-- footer -->
     <footer></footer>
   </body>
