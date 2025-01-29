@@ -23,8 +23,9 @@ export const displayRecipes = (data,recipe_container)=>{
         rating.classList.add("rating");
         rating.textContent = `Rating : ${recipe.rating}`;
 
-        const instruction = document.createElement("div");
+        const instruction = document.createElement("p");
         instruction.classList.add("instruction");
+        instruction.textContent = recipe.instructions;
 
         text_container.append(recipe_name,rating,instruction);
 
