@@ -1,6 +1,8 @@
 // display recipes in UI
 export const displayRecipes = (data,recipe_container)=>{
 
+    // recipe_container.innerHTML = "";
+
     data?.forEach((recipe)=>{
         const card_container = document.createElement("div");
         card_container.classList.add("card-container");

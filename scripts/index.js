@@ -16,8 +16,10 @@ async function getAllRecipes(pageNo,limit){
     let skip = (pageNo - 1) * limit;
 
     const recipes = await fetchAllRecipes(skip,limit);
+    console.log("recipes2:",recipes);
 
     totalItems = recipes.total;
+    console.log("totalItems:",totalItems);
 
     if(skip + limit > totalItems){
         hasMoreData = false;
@@ -25,14 +27,35 @@ async function getAllRecipes(pageNo,limit){
 
     console.log("recipes:",recipes.recipes);
 
-    showRecipes(recipes.recipes);
+    showRecipes(recipes.recipes,hasMoreData);
 
 }
 getAllRecipes(pageNo,limit);
 
 // function to show recipes
-function showRecipes(recipesList){
-    if(recipesList){
+function showRecipes(recipesList,hasMoreData){
+    if(recipesList && hasMoreData){
         displayRecipes(recipesList,recipe_container);
     }
 }
+
+// to handle infinite scrolling
+window.addEventListener("scroll", (event) => {
+  
+    const { clientHeight, scrollTop, scrollHeight } =
+      event.target.documentElement;
+
+      console.log("clientHeight:",clientHeight);
+      console.log("scrollTop:",scrollTop);
+      console.log("scrollHeight:",scrollHeight);
+
+  
+    if (clientHeight + scrollTop === scrollHeight) {
+      pageNo = pageNo + 1;
+      limit = 10;
+  
+      if (hasMoreData) {
+        getAllRecipes(pageNo, limit);
+      }
+    }
+  });
