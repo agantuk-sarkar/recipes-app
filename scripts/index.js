@@ -18,104 +18,89 @@ let hasMoreData = true;
 let searchQuery = "";
 
 // function to resolve the promise for all rescipes
-async function getAllRecipes(pageNo,limit){
-    let skip = (pageNo - 1) * limit;
+async function getAllRecipes(pageNo, limit) {
+  let skip = (pageNo - 1) * limit;
 
-    const recipes = await fetchAllRecipes(skip,limit);
-    console.log("recipes2:",recipes);
+  const recipes = await fetchAllRecipes(skip, limit);
+  console.log("recipes2:", recipes);
 
-    totalItems = recipes.total;
-    // console.log("totalItems:",totalItems);
+  totalItems = recipes.total;
 
-    if(skip + limit > totalItems){
-        hasMoreData = false;
-    }
+  if (skip + limit > totalItems) {
+    hasMoreData = false;
+  }
 
-    // console.log("recipes:",recipes.recipes);
-
-    showRecipes(recipes.recipes,hasMoreData);
-
+  showRecipes(recipes.recipes, hasMoreData);
 }
-// getAllRecipes(pageNo,limit);
-loadRecipes(pageNo,limit);
 
+loadRecipes(pageNo, limit);
 
 // function to show recipes
-function showRecipes(recipesList,hasMoreData){
-    if(recipesList && hasMoreData){
-        displayRecipes(recipesList,recipe_container);
-    }
+function showRecipes(recipesList, hasMoreData) {
+  if (recipesList && hasMoreData) {
+    displayRecipes(recipesList, recipe_container);
+  }
 }
 
 // to handle infinite scrolling
 window.addEventListener("scroll", (event) => {
-  
-    const { clientHeight, scrollTop, scrollHeight } =
-      event.target.documentElement;
+  const { clientHeight, scrollTop, scrollHeight } =
+    event.target.documentElement;
 
-      // console.log("clientHeight:",clientHeight);
-      // console.log("scrollTop:",scrollTop);
-      // console.log("scrollHeight:",scrollHeight);
-
-  
-    if (clientHeight + scrollTop === scrollHeight) {
-      pageNo = pageNo + 1;
-      limit = 10;
-  
-      if (hasMoreData) {
-        loadRecipes(pageNo, limit);
-      }
-    }
-  });
-
-  // search input event for searching all recipes
-  search_input.addEventListener("input",(event)=>{
-
-    const searchText = event.target.value;
-
-    pageNo = 1;
+  if (clientHeight + scrollTop + 10 >= scrollHeight) {
+    pageNo = pageNo + 1;
     limit = 10;
 
-    functionToPass(searchText,pageNo,limit);
-
-  });
-
-  const functionToPass = debounce(test,2000);
-
-  // test function
-  function test(searchText){
-
-    recipe_container.innerHTML = "";
-
-    searchQuery = searchText;
-
-    pageNo = 1;
-    limit = 10;
-
-    loadRecipes(pageNo,limit);
-  }
-
-  // function to load recipes
-  function loadRecipes(pageNo,limit){
-
-    if(searchQuery){
-      searchAllRecipes(searchQuery,pageNo,limit);
-    } else {
-      getAllRecipes(pageNo,limit);
+    if (hasMoreData) {
+      loadRecipes(pageNo, limit);
     }
   }
+});
 
-  // function to search recipes
-  async function searchAllRecipes(searchText,pageNo,limit){
-    let skip = (pageNo - 1) * limit;
+// search input event for searching all recipes
+search_input.addEventListener("input", (event) => {
+  const searchText = event.target.value;
 
-    const searched_recipes = await searchRecipe(searchText,skip,limit);
+  pageNo = 1;
+  limit = 10;
 
-    totalItems = searched_recipes.total;
+  functionToPass(searchText, pageNo, limit);
+});
 
-    if(skip + limit > totalItems){
-      hasMoreData = false;
-    }
+const functionToPass = debounce(test, 2000);
 
-    displayRecipes(searched_recipes.recipes,recipe_container);
+// test function
+function test(searchText) {
+  recipe_container.innerHTML = "";
+
+  searchQuery = searchText;
+
+  pageNo = 1;
+  limit = 10;
+
+  loadRecipes(pageNo, limit);
+}
+
+// function to load recipes
+function loadRecipes(pageNo, limit) {
+  if (searchQuery) {
+    searchAllRecipes(searchQuery, pageNo, limit);
+  } else {
+    getAllRecipes(pageNo, limit);
   }
+}
+
+// function to search recipes
+async function searchAllRecipes(searchText, pageNo, limit) {
+  let skip = (pageNo - 1) * limit;
+
+  const searched_recipes = await searchRecipe(searchText, skip, limit);
+
+  totalItems = searched_recipes.total;
+
+  if (skip + limit > totalItems) {
+    hasMoreData = false;
+  }
+
+  displayRecipes(searched_recipes.recipes, recipe_container);
+}

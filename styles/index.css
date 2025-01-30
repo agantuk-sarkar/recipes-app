@@ -29,7 +29,7 @@
 .logo-image{
     border:1px solid green;
     height:100%;
-    width:30%;
+    width:18%;
     border-radius:50%;
     
 
@@ -77,59 +77,66 @@
 }
 
 .recipe-card-container{
-    border:2px solid teal;
-    min-height:205vh;
-    height:auto;
+    /* border:1px solid transparent; */
     margin-top:1rem;
     display:grid;
-    /* grid-template-rows: auto; */
-    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-    gap:1rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap:2rem;
     padding:1rem 1rem;
 }
 
 .card-container{
-    border:2px solid black;
-    /* min-height:25rem; */
-    /* height:auto; */
-    max-width:300px;
+    /* max-width:300px; */
     display:flex;
     flex-direction:column;
     border-radius:8px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
-.image-container{
-    border:1px solid red;
-    /* height:60%; */
-}
 .image{
     height:100%;
     width:100%;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
 }
 
 .text-container{
-    border:2px solid blue;
     min-height:10rem;
     padding:0.5rem;
 }
 
 .recipe-name{
-    font-style: italic;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight:bold;
 }
 
 .rating{
-    font-style: italic;
     font-size:1.1rem;
+    margin-top:3px
 }
 
 .instruction{
-    border:1px solid red;
+    border:1px solid gray;
     height:5.2rem;
-    /* overflow:hidden;
-    line-height:1.3rem; */
+    overflow:auto;
+    line-height:1.3rem;
+    margin-top:9px;
+    font-style:italic;
+}
+
+::-webkit-scrollbar{
+    height:6px;
+    width:6px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: lightgray;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: gray;
+
+    border-radius: 10px;
 }
 
 /* responsive design */
