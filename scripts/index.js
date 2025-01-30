@@ -5,6 +5,8 @@ import { displayRecipes } from "../components/display-recipes.js";
 // getting the html elements into js
 const recipe_container = document.querySelector(".recipe-card-container");
 
+const search_input = document.getElementById("search-input");
+
 // taking global values
 let pageNo = 1;
 let limit = 10;
