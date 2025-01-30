@@ -2,6 +2,10 @@ import { fetchAllRecipes } from "../components/fetch-recipes.js";
 import { displayRecipes } from "../components/display-recipes.js";
 import { searchRecipe } from "../components/fetch-recipes.js";
 import { debounce } from "../utils/debounce.js";
+import { navBar } from "../components/nav-bar.js";
+
+// getting the navBar container html element into js
+document.querySelector(".nav-bar").innerHTML = navBar();
 
 // getting the html elements into js
 const recipe_container = document.querySelector(".recipe-card-container");
