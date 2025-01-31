@@ -3,6 +3,8 @@ import { displayRecipes } from "../components/display-recipes.js";
 import { searchRecipe } from "../components/fetch-recipes.js";
 import { debounce } from "../utils/debounce.js";
 import { navBar } from "../components/nav-bar.js";
+import { getRecipeByTagName } from "../components/fetch-recipes.js";
+import { getSingleRecipeByTagName } from "../components/fetch-recipes.js";
 
 // getting the navBar container html element into js
 document.querySelector(".nav-bar").innerHTML = navBar();
@@ -12,7 +14,7 @@ const recipe_container = document.querySelector(".recipe-card-container");
 
 const search_input = document.getElementById("search-input");
 
-const sort_by_recipe = document.getElementById("sort-by-recipe");
+const select_by_recipe = document.getElementById("select-by-recipe");
 
 // taking global values
 let pageNo = 1;
@@ -108,3 +110,37 @@ async function searchAllRecipes(searchText, pageNo, limit) {
 
   displayRecipes(searched_recipes.recipes, recipe_container);
 }
+
+// function to get recipe by tag name
+async function getRecipesTag() {
+  const recipe_tag = await getRecipeByTagName();
+  console.log("tags:", recipe_tag);
+
+  if (recipe_tag) {
+    recipe_tag.map((tag) => {
+      const option = document.createElement("option");
+      option.value = tag;
+      option.textContent = tag;
+      // console.log("options:",option.value);
+
+      select_by_recipe.append(option);
+    });
+  }
+}
+getRecipesTag();
+
+function getSingleRecipeByTag() {
+  select_by_recipe.addEventListener("change", async (event) => {
+    recipe_container.innerHTML = "";
+    hasMoreData = false;
+
+    const single_recipe_by_tag = await getSingleRecipeByTagName(
+      event.target.value
+    );
+
+    console.log("singleTag:", single_recipe_by_tag);
+
+    displayRecipes(single_recipe_by_tag.recipes, recipe_container);
+  });
+}
+getSingleRecipeByTag();
