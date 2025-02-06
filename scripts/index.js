@@ -154,51 +154,46 @@ function getSingleRecipeByTag() {
 }
 getSingleRecipeByTag();
 
-// click event for theme icon
-theme_icon.addEventListener("click", toggleTheme);
+//<--- Code to toggle theme from dark to light and vice versa--->
 
-// let moon_icon = document.querySelector(".theme-icon > i");
-// let moon_icon_text = document.querySelector(".theme-icon > h3");
-let temp = false;
+let moon_icon = document.querySelector(".theme-icon > i");
 
-// function to toggle theme
-function toggleTheme() {
+// click event for dark theme icon
+moon_icon.addEventListener("click", toggleDarkTheme);
+
+// function to toggle dark theme
+function toggleDarkTheme() {
   let element = document.body;
   theme_icon.innerHTML = "";
 
-  temp = true;
-
-  element.classList.toggle("dark-mode");
-
-  if (temp) {
-    // moon_icon.innerHTML = `<i class="lni lni-sun-1"></i>`;
-    let sun_icon = document.createElement("span");
-    sun_icon.innerHTML = `<i class="lni lni-sun-1"></i>`;
-
-    let sun_icon_text = document.createElement("span");
-    sun_icon_text.textContent = "Light Mode";
-
-    theme_icon.append(sun_icon, sun_icon_text);
-    // moon_icon.classList.add("theme-moon-icon");
-    stateChange(temp)
-
-  }
+  // element.classList.toggle("dark-mode", true);
+  element.style.backgroundColor = "black";
+  element.style.color = "white";
 
 
-  // food_text.classList.add("foodText");
-  dark_mode_text.classList.add("darkModeText");
+  let sun_icon = document.createElement("span");
+  sun_icon.innerHTML = `<i class="lni lni-sun-1"></i>`;
+
+  let sun_icon_text = document.createElement("span");
+  sun_icon_text.textContent = "Light Mode";
+
+  theme_icon.append(sun_icon, sun_icon_text);
+
+  // click event for light theme icon
+  sun_icon.addEventListener("click", toggleLightTheme);
 }
-function stateChange(temp){
-  temp = false;
 
+// function to toggle light theme
+function toggleLightTheme() {
+  let element = document.body;
+  theme_icon.innerHTML = "";
+
+  element.style.backgroundColor = "white";
+  element.style.color = "black";
+
+  const moon_icon_text = document.createElement("span");
+  moon_icon_text.textContent = "Dark Mode";
+
+  theme_icon.append(moon_icon, moon_icon_text);
 
 }
-// function theme(){
-
-//   moon_icon.innerHTML = `<i class="lni lni-moon-half-right-5"></i>`;
-
-//   moon_icon_text.innerHTML = `<h3 class="darkModeText">Dark Mode</h3>`;
-
-//   theme_icon.append(moon_icon,moon_icon_text);
-// }
-// theme();

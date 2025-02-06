@@ -74,13 +74,13 @@
 
 #search-input {
   padding: 0.5rem 0.5rem;
-  border-radius:8px;
-  border:1px solid black;
+  border-radius: 8px;
+  border: 1px solid black;
 }
 #select-by-recipe {
   padding: 0.5rem 0.5rem;
   width: 10rem;
-  border-radius:8px;
+  border-radius: 8px;
 }
 
 .recipe-card-container {
@@ -152,12 +152,32 @@ body {
   color: black;
 }
 
+.dark-background {
+  background-color: black;
+  color: white;
+}
+
+.light-background {
+  background-color: white;
+  color: black;
+}
+
 .dark-mode {
   background-color: black;
   color: white;
 }
 
+.dark-mode2{
+  background-color: black;
+  color: white;
+}
+
 .darkModeText {
+  color: black;
+}
+
+.light-mode {
+  background-color: white;
   color: black;
 }
 
@@ -179,7 +199,7 @@ body {
     padding-left: 2rem;
   }
   .theme-icon {
-    width:90%;
+    width: 90%;
     display: flex;
     align-items: center;
     i {
@@ -187,7 +207,6 @@ body {
     }
   }
 }
-
 
 @media screen and (min-width: 768px) {
   /* .theme-icon {
