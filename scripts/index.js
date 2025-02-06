@@ -18,7 +18,7 @@ const select_by_recipe = document.getElementById("select-by-recipe");
 
 // getting the theme icon container from html
 const theme_icon = document.querySelector(".theme-icon");
-console.log(theme_icon);
+// console.log(theme_icon);
 
 // getting the where's my food text and dark mode text from html
 const food_text = document.querySelector(".foodText");
@@ -157,13 +157,48 @@ getSingleRecipeByTag();
 // click event for theme icon
 theme_icon.addEventListener("click", toggleTheme);
 
+// let moon_icon = document.querySelector(".theme-icon > i");
+// let moon_icon_text = document.querySelector(".theme-icon > h3");
+let temp = false;
+
 // function to toggle theme
 function toggleTheme() {
   let element = document.body;
+  theme_icon.innerHTML = "";
+
+  temp = true;
 
   element.classList.toggle("dark-mode");
 
+  if (temp) {
+    // moon_icon.innerHTML = `<i class="lni lni-sun-1"></i>`;
+    let sun_icon = document.createElement("span");
+    sun_icon.innerHTML = `<i class="lni lni-sun-1"></i>`;
+
+    let sun_icon_text = document.createElement("span");
+    sun_icon_text.textContent = "Light Mode";
+
+    theme_icon.append(sun_icon, sun_icon_text);
+    // moon_icon.classList.add("theme-moon-icon");
+    stateChange(temp)
+
+  }
+
+
   // food_text.classList.add("foodText");
   dark_mode_text.classList.add("darkModeText");
-  theme_moon_icon.classList.add("theme-moon-icon");
 }
+function stateChange(temp){
+  temp = false;
+
+
+}
+// function theme(){
+
+//   moon_icon.innerHTML = `<i class="lni lni-moon-half-right-5"></i>`;
+
+//   moon_icon_text.innerHTML = `<h3 class="darkModeText">Dark Mode</h3>`;
+
+//   theme_icon.append(moon_icon,moon_icon_text);
+// }
+// theme();

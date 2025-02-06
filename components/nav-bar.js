@@ -11,7 +11,7 @@ export function navBar() {
       <div class="theme-container">
         <div class="theme-icon">
           <i class="lni lni-moon-half-right-5"></i>
+          <h3 class="darkModeText">Dark Mode</h3>
         </div>
-        <h3 class="darkModeText">Dark Mode</h3>
       </div>`;
 }
