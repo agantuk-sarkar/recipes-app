@@ -1,193 +1,213 @@
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin:0;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
-.nav-bar{
-    border:1px solid black;
-    height:4rem;
-    position: sticky;
-    top:0;
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    padding:0 2rem;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+.nav-bar {
+  border: 1px solid black;
+  height: 4rem;
+  /* position: sticky;
+  top: 0; */
+  /* background-color: white; */
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
-.logo-and-text-container{
-    border:1px solid red;
-    height:100%;
-    width:20%;
-    display:flex;
-    align-items: center;
-    gap:10px;
+.logo-and-text-container {
+  border: 1px solid red;
+  height: 100%;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-.theme-container{
-    border:1px solid blue;
-    height:100%;
-    width:22%;
-    display:flex;
-    align-items: center;
-    justify-content: end;
+.theme-container {
+  border: 1px solid blue;
+  height: 100%;
+  width: 22%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
-.logo-image{
-    border:1px solid green;
-    height:100%;
-    width:15%;
-    border-radius:50%;
-    
+.logo-image {
+  border: 1px solid green;
+  height: 100%;
+  width: 15%;
+  border-radius: 50%;
 
-    img{
-        height:100%;
-        width:100%;
-        object-fit: cover;
-        border-radius: 50%;
-    }
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
 }
-.theme-icon{
-    border:1px solid green;
-    height:100%;
-    width:30%;
-    display:flex;
-    align-items:center;
+.theme-icon {
+  border: 1px solid green;
+  height: 100%;
+  width: 32%;
+  display: flex;
+  align-items: center;
 
-    i{
-        font-size:2rem;
-        cursor: pointer;
-    }
-}
-
-.recipes-container{
-    border:1px solid red;
-    /* min-height:100vh; */
-    /* height:auto; */
-    margin-top:1rem;
+  i {
+    font-size: 2rem;
+    cursor: pointer;
+  }
 }
 
-.search-and-sort-by-container{
-    border:1px solid black;
-    height:3rem;
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
+.recipes-container {
+  border: 1px solid red;
+  /* min-height:100vh; */
+  /* height:auto; */
+  margin-top: 1rem;
 }
 
-#search-input{
-    padding:0.5rem 0.5rem;
-}
-#select-by-recipe{
-    padding:0.5rem 0.5rem;
-    width:10rem;
-}
-
-.recipe-card-container{
-    /* border:1px solid transparent; */
-    margin-top:1rem;
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-    gap:2rem;
-    padding:1rem 1rem;
+.search-and-sort-by-container {
+  border: 1px solid black;
+  height: 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.card-container{
-    /* max-width:300px; */
-    display:flex;
-    flex-direction:column;
-    border-radius:8px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+#search-input {
+  padding: 0.5rem 0.5rem;
+  border-radius:8px;
+  border:1px solid black;
+}
+#select-by-recipe {
+  padding: 0.5rem 0.5rem;
+  width: 10rem;
+  border-radius:8px;
 }
 
-.image{
-    height:100%;
-    width:100%;
-    border-top-right-radius: 8px;
-    border-top-left-radius: 8px;
+.recipe-card-container {
+  /* border:1px solid transparent; */
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem 1rem;
 }
 
-.text-container{
-    min-height:10rem;
-    padding:0.5rem;
+.card-container {
+  /* max-width:300px; */
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
-.recipe-name{
-    font-size: 1.25rem;
-    font-weight:bold;
+.image {
+  height: 100%;
+  width: 100%;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
 }
 
-.rating{
-    font-size:1.1rem;
-    margin-top:3px
+.text-container {
+  min-height: 10rem;
+  padding: 0.5rem;
 }
 
-.instruction{
-    border:1px solid gray;
-    height:5.2rem;
-    overflow:auto;
-    line-height:1.3rem;
-    margin-top:9px;
-    font-style:italic;
+.recipe-name {
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
-::-webkit-scrollbar{
-    height:6px;
-    width:6px;
+.rating {
+  font-size: 1.1rem;
+  margin-top: 3px;
+}
+
+.instruction {
+  border: 1px solid gray;
+  height: 5.2rem;
+  overflow: auto;
+  line-height: 1.3rem;
+  margin-top: 9px;
+  font-style: italic;
+}
+
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: lightgray;
+  background-color: lightgray;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: gray;
+  background-color: gray;
 
-    border-radius: 10px;
+  border-radius: 10px;
+}
+
+body {
+  /* background-color: white; */
+  color: black;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+.darkModeText {
+  color: black;
 }
 
 /* responsive design */
-@media screen and (min-width:375px){
+@media screen and (min-width: 375px) {
+  .nav-bar {
+    gap: 10px;
+  }
 
-    .nav-bar{
-        gap:10px;
-    }
+  .logo-and-text-container {
+    width: 50%;
+  }
+  .logo-image {
+    width: 19%;
+  }
 
-    .logo-and-text-container{
-        width:50%;
+  .theme-container {
+    width: 50%;
+    padding-left: 2rem;
+  }
+  .theme-icon {
+    display: flex;
+    align-items: center;
+    i {
+      font-size: 2rem;
     }
-    .logo-image{
-        width:19%;
-    }
-
-    .theme-container{
-        width:50%;
-        padding-left:2rem;
-    }
-    .theme-icon{
-        display: flex;
-        align-items: center;
-        i{
-            font-size:2rem;
-        }
-    }
+  }
 }
 
-@media screen and (min-width:768px) {
-    .theme-icon{
-        width:10%;
-    }
-    .theme-container{
-        width:40%;
-        display:flex;
-        justify-content: end;
-        gap:7px;
-    }    
+@media screen and (min-width: 768px) {
+  .theme-icon {
+    width: 10%;
+  }
+  .theme-container {
+    width: 40%;
+    display: flex;
+    justify-content: end;
+    gap: 7px;
+  }
 }
 
-@media screen and (min-width:1024px){
-    .theme-container{
-        width:22%;
-        gap:10px;
-    }
-    .logo-and-text-container{
-        width:27%;
-    }
+@media screen and (min-width: 1024px) {
+  .theme-container {
+    width: 22%;
+    gap: 10px;
+  }
+  .logo-and-text-container {
+    width: 27%;
+  }
+  .theme-icon {
+    width: 15%;
+  }
 }

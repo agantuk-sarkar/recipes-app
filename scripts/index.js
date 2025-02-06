@@ -16,6 +16,16 @@ const search_input = document.getElementById("search-input");
 
 const select_by_recipe = document.getElementById("select-by-recipe");
 
+// getting the theme icon container from html
+const theme_icon = document.querySelector(".theme-icon");
+console.log(theme_icon);
+
+// getting the where's my food text and dark mode text from html
+const food_text = document.querySelector(".foodText");
+const dark_mode_text = document.querySelector(".darkModeText");
+const theme_moon_icon = document.querySelector(".theme-icon > i");
+console.log(theme_moon_icon);
+
 // taking global values
 let pageNo = 1;
 let limit = 10;
@@ -114,7 +124,6 @@ async function searchAllRecipes(searchText, pageNo, limit) {
 // function to get recipe by tag name
 async function getRecipesTag() {
   const recipe_tag = await getRecipeByTagName();
-  console.log("tags:", recipe_tag);
 
   if (recipe_tag) {
     recipe_tag.map((tag) => {
@@ -144,3 +153,17 @@ function getSingleRecipeByTag() {
   });
 }
 getSingleRecipeByTag();
+
+// click event for theme icon
+theme_icon.addEventListener("click", toggleTheme);
+
+// function to toggle theme
+function toggleTheme() {
+  let element = document.body;
+
+  element.classList.toggle("dark-mode");
+
+  // food_text.classList.add("foodText");
+  dark_mode_text.classList.add("darkModeText");
+  theme_moon_icon.classList.add("theme-moon-icon");
+}
