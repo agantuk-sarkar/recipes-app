@@ -191,7 +191,10 @@ body {
     width: 50%;
   }
   .logo-image {
-    width: 19%;
+    width: 35%;
+    img{
+      border-radius:50%;
+    }
   }
 
   .theme-container {
@@ -216,13 +219,22 @@ body {
     width: 40%;
     display: flex;
     justify-content: end;
-    gap: 7px;
+    /* gap: 7px; */
+  }
+
+  .logo-image{
+    width:20%;
+  }
+
+  .theme-icon{
+    display:flex;
+    justify-content: end;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .theme-container {
-    width: 15%;
+    width: 17%;
     gap: 10px;
   }
   .logo-and-text-container {

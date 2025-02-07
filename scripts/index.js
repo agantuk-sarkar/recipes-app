@@ -170,7 +170,6 @@ function toggleDarkTheme() {
   element.style.backgroundColor = "black";
   element.style.color = "white";
 
-
   let sun_icon = document.createElement("span");
   sun_icon.innerHTML = `<i class="lni lni-sun-1"></i>`;
 
@@ -195,5 +194,4 @@ function toggleLightTheme() {
   moon_icon_text.textContent = "Dark Mode";
 
   theme_icon.append(moon_icon, moon_icon_text);
-
 }
