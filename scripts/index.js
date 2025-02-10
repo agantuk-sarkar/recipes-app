@@ -155,10 +155,9 @@ function getSingleRecipeByTag() {
 getSingleRecipeByTag();
 
 //<--- Code to toggle theme from dark to light and vice versa--->
-// let isDark = JSON.parse(localStorage.getItem("darkMode")) || false;
-applyThemePreference();
-
 let moon_icon = document.querySelector(".theme-icon > i");
+
+applyThemePreference();
 
 // click event for dark theme icon
 moon_icon.addEventListener("click", toggleDarkTheme);
@@ -167,20 +166,8 @@ moon_icon.addEventListener("click", toggleDarkTheme);
 function toggleDarkTheme() {
   let element = document.body;
   theme_icon.innerHTML = "";
-  let currentTheme = localStorage.getItem("theme");
 
-  // if(currentTheme === "dark"){
-  //   setTheme("dark");
-  // } else {
-  //   setTheme("light");
-  // }
   setTheme("dark");
-  // element.classList.toggle("dark-mode", true);
-  // element.style.backgroundColor = "black";
-  // element.style.color = "white";
-  // element.classList.remove("light-mode");
-  // element.classList.add("dark-mode");
-  
 
   let sun_icon = document.createElement("span");
   sun_icon.innerHTML = `<i class="lni lni-sun-1"></i>`;
@@ -191,52 +178,52 @@ function toggleDarkTheme() {
   theme_icon.append(sun_icon, sun_icon_text);
 
   // click event for light theme icon
-  sun_icon.addEventListener("click", ()=>{
-    theme_icon.innerHTML = "";
+  sun_icon.addEventListener("click",toggleLightTheme)
+}
 
-  // element.style.backgroundColor = "white";
-  // element.style.color = "black";
-  // element.classList.remove("dark-mode");
+// function to toggle light theme
+function toggleLightTheme() {
+  theme_icon.innerHTML = "";
 
-  // element.classList.add("light-mode");
   setTheme("light");
 
   const moon_icon_text = document.createElement("span");
   moon_icon_text.textContent = "Dark Mode";
 
   theme_icon.append(moon_icon, moon_icon_text);
-  });
 }
 
-// function to toggle light theme
-// function toggleLightTheme() {
-//   let element = document.body;
-//   theme_icon.innerHTML = "";
-
-//   // element.style.backgroundColor = "white";
-//   // element.style.color = "black";
-//   element.classList.remove("dark-mode");
-
-//   element.classList.add("light-mode");
-
-//   const moon_icon_text = document.createElement("span");
-//   moon_icon_text.textContent = "Dark Mode";
-
-//   theme_icon.append(moon_icon, moon_icon_text);
-// }
-
 // function to set a given theme
-function setTheme(themeName){
-  localStorage.setItem("theme",themeName);
-  document.documentElement.setAttribute("data-theme",themeName);
+function setTheme(themeName) {
+  localStorage.setItem("theme", themeName);
+  document.documentElement.setAttribute("data-theme", themeName);
 }
 
 // function which will be invoked when the page is refreshed
 function applyThemePreference() {
   let storedTheme = localStorage.getItem("theme") || "light";
   setTheme(storedTheme);
-  console.log(storedTheme);
+
   theme_icon.innerHTML = "";
- 
+
+  // condition to check if dark or light theme is present then once the page is refreshed it will take the corresponding theme icon and behave accordingly
+  if (storedTheme === "dark") {
+    let sun_icon = document.createElement("span");
+    sun_icon.innerHTML = `<i class="lni lni-sun-1"></i>`;
+
+    let sun_icon_text = document.createElement("span");
+    sun_icon_text.textContent = "Light Mode";
+    theme_icon.append(sun_icon, sun_icon_text);
+
+    sun_icon.addEventListener("click",toggleLightTheme);
+
+  } else if (storedTheme === "light") {
+    const moon_icon_text = document.createElement("span");
+    moon_icon_text.textContent = "Dark Mode";
+    theme_icon.append(moon_icon, moon_icon_text);
+
+    moon_icon.addEventListener("click",toggleDarkTheme);
+    
+  }
 }
-// applyThemePreference();
+
