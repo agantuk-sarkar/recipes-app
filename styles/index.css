@@ -170,31 +170,7 @@ body {
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
 }
-/* body {
-  /* background-color: white; */
-/* color: black; */
-/* } */
-*/
 
-/* .dark-background {
-  background-color: black;
-  color: white;
-}
-
-.light-background {
-  background-color: white;
-  color: black;
-}
- 
-
-.darkModeText {
-  color: black;
-}
-
-.light-mode {
-  background-color: white;
-  color: black;
-}
 
 /* responsive design */
 @media screen and (min-width: 375px) {
