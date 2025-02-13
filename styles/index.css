@@ -147,15 +147,6 @@
   border-radius: 10px;
 }
 
-/* .dark-mode {
-  background-color: black;
-  color: white;
-}
-
-.light-mode {
-  background-color: white;
-  color: black;
-} */
 :root[data-theme="light"] {
   --background-color: #ffffff;
   --text-color: #000000;

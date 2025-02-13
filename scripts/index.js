@@ -18,13 +18,9 @@ const select_by_recipe = document.getElementById("select-by-recipe");
 
 // getting the theme icon container from html
 const theme_icon = document.querySelector(".theme-icon");
-// console.log(theme_icon);
 
-// getting the where's my food text and dark mode text from html
-const food_text = document.querySelector(".foodText");
-const dark_mode_text = document.querySelector(".darkModeText");
+// getting the moon icon text from html
 const theme_moon_icon = document.querySelector(".theme-icon > i");
-console.log(theme_moon_icon);
 
 // taking global values
 let pageNo = 1;
@@ -58,7 +54,7 @@ function showRecipes(recipesList, hasMoreData) {
   }
 }
 
-// to handle infinite scrolling
+// event to handle infinite scrolling
 window.addEventListener("scroll", (event) => {
   const { clientHeight, scrollTop, scrollHeight } =
     event.target.documentElement;
@@ -121,7 +117,7 @@ async function searchAllRecipes(searchText, pageNo, limit) {
   displayRecipes(searched_recipes.recipes, recipe_container);
 }
 
-// function to get recipe by tag name
+// function to get all recipes by tag name
 async function getRecipesTag() {
   const recipe_tag = await getRecipeByTagName();
 
@@ -130,7 +126,6 @@ async function getRecipesTag() {
       const option = document.createElement("option");
       option.value = tag;
       option.textContent = tag;
-      // console.log("options:",option.value);
 
       select_by_recipe.append(option);
     });
@@ -138,6 +133,7 @@ async function getRecipesTag() {
 }
 getRecipesTag();
 
+// function to get single recipe by tag name
 function getSingleRecipeByTag() {
   select_by_recipe.addEventListener("change", async (event) => {
     recipe_container.innerHTML = "";
@@ -154,7 +150,8 @@ function getSingleRecipeByTag() {
 }
 getSingleRecipeByTag();
 
-//<--- Code to toggle theme from dark to light and vice versa--->
+//<--- Code to toggle theme from dark to light and vice versa --->
+
 let moon_icon = document.querySelector(".theme-icon > i");
 
 applyThemePreference();
@@ -164,7 +161,6 @@ moon_icon.addEventListener("click", toggleDarkTheme);
 
 // function to toggle dark theme
 function toggleDarkTheme() {
-  let element = document.body;
   theme_icon.innerHTML = "";
 
   setTheme("dark");
@@ -178,7 +174,7 @@ function toggleDarkTheme() {
   theme_icon.append(sun_icon, sun_icon_text);
 
   // click event for light theme icon
-  sun_icon.addEventListener("click",toggleLightTheme)
+  sun_icon.addEventListener("click", toggleLightTheme);
 }
 
 // function to toggle light theme
@@ -215,15 +211,12 @@ function applyThemePreference() {
     sun_icon_text.textContent = "Light Mode";
     theme_icon.append(sun_icon, sun_icon_text);
 
-    sun_icon.addEventListener("click",toggleLightTheme);
-
+    sun_icon.addEventListener("click", toggleLightTheme);
   } else if (storedTheme === "light") {
     const moon_icon_text = document.createElement("span");
     moon_icon_text.textContent = "Dark Mode";
     theme_icon.append(moon_icon, moon_icon_text);
 
-    moon_icon.addEventListener("click",toggleDarkTheme);
-    
+    moon_icon.addEventListener("click", toggleDarkTheme);
   }
 }
-
