@@ -3,7 +3,7 @@ export const displayRecipes = (data,recipe_container)=>{
 
     // recipe_container.innerHTML = "";
 
-    data?.forEach((recipe)=>{
+    data?.forEach((recipe,index)=>{
         const card_container = document.createElement("div");
         card_container.classList.add("card-container");
 
@@ -29,7 +29,22 @@ export const displayRecipes = (data,recipe_container)=>{
         instruction.classList.add("instruction");
         instruction.textContent = recipe.instructions;
 
-        text_container.append(recipe_name,rating,instruction);
+        const tags_container = document.createElement("div");
+        tags_container.classList.add("tags-container");
+
+        const tags = recipe.tags;
+        tags.forEach((tag)=>{
+            const tag_text = document.createElement("p");
+            tag_text.textContent = tag;
+            tag_text.classList.add("tag-text");
+            tags_container.append(tag_text);
+        });
+
+        const view_details_button = document.createElement("div");
+        view_details_button.classList.add("view-details");
+        view_details_button.textContent = "View Details";
+
+        text_container.append(recipe_name,tags_container,rating,instruction,view_details_button);
 
         image_container.append(image);
 
