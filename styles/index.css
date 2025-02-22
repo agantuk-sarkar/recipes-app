@@ -132,32 +132,69 @@
   font-style: italic;
 }
 
-.tags-container{
+.tags-container {
   /* border:1px solid black; */
-  border-radius:8px;
-  height:2rem;
-  display:flex;
+  border-radius: 8px;
+  height: 2rem;
+  display: flex;
   overflow: auto;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
-.tag-text{
+.tag-text {
   background-color: lightgray;
-  margin-right:0.5rem;
-  border-radius:5px;
-  padding:0.2rem;
+  margin-right: 0.5rem;
+  border-radius: 5px;
+  padding: 0.2rem;
   font-style: italic;
 }
 
-.view-details{
-  height:2rem;
-  width:6rem;
-  margin:auto;
-  padding:0.3rem;
+.view-details {
+  height: 2rem;
+  width: 6rem;
+  margin: auto;
+  padding: 0.3rem;
   background-color: blue;
-  color:white;
+  color: white;
   border-radius: 5px;
-  margin-top:4px;
+  margin-top: 4px;
+  cursor: pointer;
+}
+
+.ingredients {
+  margin-top: 4px;
+  font-size: 1.1rem;
+  font-style: oblique;
+}
+
+.cuisine {
+  margin-top: 4px;
+  font-size: 1.1rem;
+  font-style: oblique;
+}
+
+.prep-time {
+  margin-top: 4px;
+  font-size: 1.1rem;
+  font-style: oblique;
+}
+
+.meal-type {
+  margin-top: 4px;
+  font-size: 1.1rem;
+  font-style: oblique;
+}
+
+.home-button {
+  height: 2rem;
+  width: 8rem;
+  margin: auto;
+  padding: 0.3rem;
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  margin-top: 4px;
   cursor: pointer;
 }
 
@@ -190,7 +227,6 @@ body {
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
 }
-
 
 /* responsive design */
 @media screen and (min-width: 375px) {

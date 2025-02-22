@@ -1,5 +1,6 @@
 import { getSingleRecipeById } from "../components/fetch-recipes.js";
-import { displayRecipes } from "../components/display-recipes.js";
+import { displaySingleRecipe } from "../components/display-single-recipe.js";
+
 // Parse the URL query parameters
 let query_Parameters = new URLSearchParams(window.location.search);
 
@@ -11,13 +12,13 @@ console.log("id:",id);
 
 let recipe_container = document.querySelector(".recipe-card-container");
 
-let arr = [];
+let singleRecipeArray = [];
 
 async function showSingleRecipeById(id){
     const single_recipe_by_id = await getSingleRecipeById(id);
     console.log(single_recipe_by_id);
-    arr.push(single_recipe_by_id);
+    singleRecipeArray.push(single_recipe_by_id);
 
-    displayRecipes(arr,recipe_container);
+    displaySingleRecipe(singleRecipeArray,recipe_container);
 }
 showSingleRecipeById(id)
