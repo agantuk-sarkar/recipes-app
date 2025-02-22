@@ -61,3 +61,19 @@ export const getSingleRecipeByTagName = async (tagName)=>{
         console.log("error:",error);
     }
 }
+
+// get single recipe by ID
+export const getSingleRecipeById = async (id)=>{
+    try{
+        const response = await fetch(`https://dummyjson.com/recipes/${id}`);
+
+        if(response.ok){
+            const data = await response.json();
+            return data;
+        } else {
+            throw new Error("404 Not found");
+        }
+    } catch(error){
+        console.log("error:",error);
+    }
+}

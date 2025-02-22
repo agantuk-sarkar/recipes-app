@@ -133,7 +133,7 @@
 }
 
 .tags-container{
-  border:1px solid black;
+  /* border:1px solid black; */
   border-radius:8px;
   height:2rem;
   display:flex;
