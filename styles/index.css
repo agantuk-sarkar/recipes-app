@@ -68,19 +68,23 @@
   border: 1px solid black;
   height: 3rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  padding: 0.5rem;
 }
 
 #search-input {
   padding: 0.5rem 0.5rem;
   border-radius: 8px;
   border: 1px solid black;
+  width: 18rem;
+  text-align: center;
 }
 #select-by-recipe {
   padding: 0.5rem 0.5rem;
-  width: 10rem;
+  width: 15rem;
   border-radius: 8px;
+  text-align: center;
 }
 
 .recipe-card-container {
@@ -129,7 +133,8 @@
   overflow: auto;
   line-height: 1.3rem;
   margin-top: 9px;
-  font-style: italic;
+  font-size: smaller;
+  /* font-style: italic; */
 }
 
 .tags-container {
@@ -143,17 +148,18 @@
 }
 
 .tag-text {
-  background-color: lightgray;
+  background-color: rgb(249, 246, 246);
   margin-right: 0.5rem;
   border-radius: 5px;
   padding: 0.2rem;
   font-style: italic;
+  color: rgb(145, 144, 144);
 }
 
 .view-details {
   height: 2rem;
-  width: 6rem;
-  margin: auto;
+  /* width: 6rem; */
+  text-align: center;
   padding: 0.3rem;
   background-color: blue;
   color: white;
@@ -162,27 +168,37 @@
   cursor: pointer;
 }
 
+.card-single-recipe-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  width: 40rem;
+  margin: auto;
+}
+
 .ingredients {
   margin-top: 4px;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   font-style: oblique;
 }
 
 .cuisine {
   margin-top: 4px;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   font-style: oblique;
 }
 
 .prep-time {
   margin-top: 4px;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   font-style: oblique;
 }
 
 .meal-type {
   margin-top: 4px;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   font-style: oblique;
 }
 

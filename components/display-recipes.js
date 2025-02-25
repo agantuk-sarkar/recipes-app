@@ -39,6 +39,7 @@ export const displayRecipes = (data, recipe_container) => {
       tags_container.append(tag_text);
     });
 
+    // show single recipe in a new html page
     const view_details_button = document.createElement("div");
     view_details_button.classList.add("view-details");
     view_details_button.textContent = "View Details";

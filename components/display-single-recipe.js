@@ -4,7 +4,7 @@ export const displaySingleRecipe = (data, recipe_container) => {
 
   data?.forEach((recipe, index) => {
     const card_container = document.createElement("div");
-    card_container.classList.add("card-container");
+    card_container.classList.add("card-single-recipe-container");
 
     const image_container = document.createElement("div");
     image_container.classList.add("image-container");
@@ -59,7 +59,8 @@ export const displaySingleRecipe = (data, recipe_container) => {
     home_button.classList.add("home-button");
     home_button.textContent = "Go To Home Page";
     home_button.addEventListener("click", () => {
-      window.location.href = "./index.html";
+      // window.location.href = "./index.html";
+      history.back();
     });
 
     text_container.append(
