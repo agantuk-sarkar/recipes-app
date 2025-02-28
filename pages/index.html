@@ -10,24 +10,26 @@
   </head>
   <body>
     <!-- header -->
-    <nav class="nav-bar">
-      <div class="logo-and-text-container">
-        <div class="logo-image">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtpQE3qdw-DNeFmvxM42Vih11_bu2D7uqWeA&s"
-          />
-        </div>
-        <h3>Where's My Food&nbsp;?</h3>
-      </div>
-      <div class="theme-container">
-        <div class="theme-icon">
-            <i class="lni lni-moon-half-right-5"></i>
-        </div>
-        <h3>Dark Mode</h3>
-      </div>
-    </nav>
+    <nav class="nav-bar"></nav>
     <!-- main body -->
-    <main class="recipes-container"></main>
+    <main class="recipes-container">
+      <!-- search container and sort by container -->
+      <div class="search-and-sort-by-container">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Enter the Recipe name"
+        />
+        <!-- sort by recipe -->
+        <div class="sort-by-container">
+          <select id="select-by-recipe">
+            <option hidden>Select By Recipe</option>
+          </select>
+        </div>
+      </div>
+      <!-- recipe cards -->
+      <div class="recipe-card-container"></div>
+    </main>
     <!-- footer -->
     <footer></footer>
   </body>
