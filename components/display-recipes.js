@@ -1,6 +1,5 @@
 // display recipes in UI
 export const displayRecipes = (data, recipe_container) => {
-  // recipe_container.innerHTML = "";
 
   data?.forEach((recipe, index) => {
     const card_container = document.createElement("div");
@@ -62,7 +61,3 @@ export const displayRecipes = (data, recipe_container) => {
     recipe_container.append(card_container);
   });
 };
-
-// function showSingleRecipe(){
-//     window.location.href = "./single-recipe.html" +
-// }

@@ -19,9 +19,6 @@ const select_by_recipe = document.getElementById("select-by-recipe");
 // getting the theme icon container from html
 const theme_icon = document.querySelector(".theme-icon");
 
-// getting the moon icon text from html
-const theme_moon_icon = document.querySelector(".theme-icon > i");
-
 // taking global values
 let pageNo = 1;
 let limit = 10;
@@ -29,12 +26,11 @@ let totalItems = 0;
 let hasMoreData = true;
 let searchQuery = "";
 
-// function to resolve the promise for all rescipes
+// function to resolve the promise for all recipes
 async function getAllRecipes(pageNo, limit) {
   let skip = (pageNo - 1) * limit;
 
   const recipes = await fetchAllRecipes(skip, limit);
-  console.log("recipes2:", recipes);
 
   totalItems = recipes.total;
 
